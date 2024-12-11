@@ -2,12 +2,12 @@
 
 pragma solidity ^0.8.19;
 
-import {IHooks} from "v2-core/interfaces/IHooks.sol";
-import {IBookManager} from "v2-core/interfaces/IBookManager.sol";
-import {Hooks} from "v2-core/libraries/Hooks.sol";
-import {OrderId} from "v2-core/libraries/OrderId.sol";
+import {IHooks} from "core/interfaces/IHooks.sol";
+import {IBookManager} from "core/interfaces/IBookManager.sol";
+import {Hooks} from "core/libraries/Hooks.sol";
+import {OrderId} from "core/libraries/OrderId.sol";
 
-/// @author Clober
+/// @author Sonic Market
 /// @author Modified from https://github.com/Uniswap/v4-periphery/blob/63d64fcd82bff9ec0bad89730ce28d7ffa8e4225/contracts/BaseHook.sol
 
 abstract contract BaseHook is IHooks {

@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.0;
 
-import {BookId} from "v2-core/libraries/BookId.sol";
-import {IBookManager} from "v2-core/interfaces/IBookManager.sol";
-import {Tick} from "v2-core/libraries/Tick.sol";
+import {BookId} from "core/libraries/BookId.sol";
+import {IBookManager} from "core/interfaces/IBookManager.sol";
+import {Tick} from "core/libraries/Tick.sol";
 
 import {IController} from "./IController.sol";
 

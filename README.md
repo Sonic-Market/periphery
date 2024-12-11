@@ -1,15 +1,15 @@
-# Clober V2 Periphery
+# Sonic Market
 
-[![Docs](https://img.shields.io/badge/docs-%F0%9F%93%84-blue)](https://docs.clober.io/)
-[![CI status](https://github.com/clober-dex/v2-periphery/actions/workflows/test.yaml/badge.svg)](https://github.com/clober-dex/v2-periphery/actions/workflows/test.yaml)
-[![Discord](https://img.shields.io/static/v1?logo=discord&label=discord&message=Join&color=blue)](https://discord.com/invite/clober-coupon-finance)
-[![Twitter](https://img.shields.io/static/v1?logo=twitter&label=twitter&message=Follow&color=blue)](https://twitter.com/CloberDEX)
+[![Docs](https://img.shields.io/badge/docs-%F0%9F%93%84-blue)](https://docs.sonic.market/)
+[![CI status](https://github.com/Sonic-Market/periphery/actions/workflows/test.yaml/badge.svg)](https://github.com/Sonic-Market/periphery/actions/workflows/test.yaml)
+[![Discord](https://img.shields.io/static/v1?logo=discord&label=discord&message=Join&color=blue)](https://discord.com/invite/sonic-market)
+[![Twitter](https://img.shields.io/static/v1?logo=twitter&label=twitter&message=Follow&color=blue)](https://x.com/Sonic_Market)
 
-Periphery Contract of Clober DEX V2
+Periphery Contract of Sonic Market
 
 ## Table of Contents
 
-- [Clober V2 Periphery](#clober-v2-periphery)
+- [Sonic Market](#sonic-market)
     - [Table of Contents](#table-of-contents)
     - [Deployments](#deployments)
     - [Install](#install)
@@ -30,7 +30,7 @@ All deployments can be found in the [deployments](./deployments) directory.
 ### Installing From Source
 
 ```bash
-git clone https://github.com/clober-dex/v2-periphery && cd v2-periphery
+git clone https://github.com/Sonic-Market/periphery && cd periphery
 npm install
 ```
 

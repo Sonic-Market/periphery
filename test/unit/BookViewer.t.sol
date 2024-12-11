@@ -3,7 +3,7 @@
 pragma solidity ^0.8.20;
 
 import "forge-std/Test.sol";
-import "v2-core/BookManager.sol";
+import "core/BookManager.sol";
 
 import "../mocks/BookManagerWrapper.sol";
 import "../../src/BookViewer.sol";

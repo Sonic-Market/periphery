@@ -6,7 +6,7 @@ import {Ownable2Step, Ownable} from "@openzeppelin/contracts/access/Ownable2Step
 import {UUPSUpgradeable} from "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol";
 import {Initializable} from "@openzeppelin/contracts/proxy/utils/Initializable.sol";
 import {IProviderFactory} from "./interfaces/IProviderFactory.sol";
-import {IBookManager} from "v2-core/interfaces/IBookManager.sol";
+import {IBookManager} from "core/interfaces/IBookManager.sol";
 import {Provider} from "./Provider.sol";
 
 contract ProviderFactory is IProviderFactory, UUPSUpgradeable, Ownable2Step, Initializable {

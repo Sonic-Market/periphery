@@ -2,8 +2,8 @@
 
 pragma solidity ^0.8.20;
 
-import {IBookManager} from "v2-core/interfaces/IBookManager.sol";
-import {Currency, CurrencyLibrary} from "v2-core/libraries/Currency.sol";
+import {IBookManager} from "core/interfaces/IBookManager.sol";
+import {Currency, CurrencyLibrary} from "core/libraries/Currency.sol";
 import {IProvider} from "./interfaces/IProvider.sol";
 import {IProviderFactory} from "./interfaces/IProviderFactory.sol";
 

@@ -3,7 +3,7 @@
 pragma solidity ^0.8.0;
 
 import "forge-std/Test.sol";
-import "v2-core/mocks/MockERC20.sol";
+import "core/mocks/MockERC20.sol";
 
 import "../../../src/Controller.sol";
 import "../../../src/BookViewer.sol";

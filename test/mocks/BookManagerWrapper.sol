@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.0;
 
-import "v2-core/BookManager.sol";
+import "core/BookManager.sol";
 
 contract BookManagerWrapper is BookManager {
     using Book for Book.State;

@@ -5,9 +5,6 @@ import * as dotenv from 'dotenv'
 import readlineSync from 'readline-sync'
 
 import 'hardhat-deploy'
-import '@matterlabs/hardhat-zksync-deploy'
-import '@matterlabs/hardhat-zksync-solc'
-import '@matterlabs/hardhat-zksync-verify'
 import '@nomicfoundation/hardhat-viem'
 import '@nomicfoundation/hardhat-foundry'
 import '@nomicfoundation/hardhat-verify'
@@ -28,7 +25,7 @@ for (const [networkName, networkInfo] of Object.entries(networkInfos)) {
 
 const SKIP_LOAD = process.env.SKIP_LOAD === 'true'
 
-// Prevent to load scripts before compilation and typechain
+// Prevent to load scripts before compilation
 if (!SKIP_LOAD) {
   const tasksPath = path.join(__dirname, 'task')
   fs.readdirSync(tasksPath)
@@ -55,12 +52,7 @@ const loadPrivateKeyFromKeyfile = () => {
     }
   }
 
-  const prodNetworks = new Set<number>([
-    networkInfos.mainnet.id,
-    networkInfos.arbitrum.id,
-    networkInfos.base.id,
-    networkInfos.zkSync.id,
-  ])
+  const prodNetworks = new Set<number>([146])
   if (network && prodNetworks.has(network)) {
     if (privateKey) {
       return privateKey
@@ -83,9 +75,6 @@ const loadPrivateKeyFromKeyfile = () => {
 }
 
 const config: HardhatConfig = {
-  zksolc: {
-    version: 'latest', // Uses latest available in https://github.com/matter-labs/zksolc-bin/
-  },
   solidity: {
     compilers: [
       {
@@ -103,99 +92,9 @@ const config: HardhatConfig = {
   },
   defaultNetwork: 'hardhat',
   networks: {
-    sepolia: {
-      url: networkInfos.sepolia.rpcUrls.default.http[0],
-      chainId: networkInfos.sepolia.id,
-      accounts: process.env.DEV_PRIVATE_KEY ? [process.env.DEV_PRIVATE_KEY] : [],
-      gas: 'auto',
-      gasPrice: 'auto',
-      gasMultiplier: 1,
-      timeout: 3000000,
-      httpHeaders: {},
-      live: true,
-      saveDeployments: true,
-      tags: ['testnet', 'test'],
-      companionNetworks: {},
-    },
-    [networkInfos.zkSyncSepoliaTestnet.id]: {
-      url: networkInfos.zkSyncSepoliaTestnet.rpcUrls.default.http[0],
-      chainId: networkInfos.zkSyncSepoliaTestnet.id,
-      accounts: process.env.DEV_PRIVATE_KEY ? [process.env.DEV_PRIVATE_KEY] : [],
-      gas: 'auto',
-      gasPrice: 'auto',
-      gasMultiplier: 1,
-      timeout: 3000000,
-      httpHeaders: {},
-      live: true,
-      saveDeployments: true,
-      tags: ['testnet', 'test'],
-      companionNetworks: {},
-      ethNetwork: 'sepolia', // The Ethereum Web3 RPC URL, or the identifier of the network (e.g. `mainnet` or `sepolia`)
-      verifyURL: 'https://explorer.sepolia.era.zksync.dev/contract_verification',
-      zksync: true,
-    },
-    [networkInfos.zkSync.id]: {
-      url: networkInfos.zkSync.rpcUrls.default.http[0],
-      chainId: networkInfos.zkSync.id,
-      accounts: [loadPrivateKeyFromKeyfile()],
-      gas: 'auto',
-      gasPrice: 'auto',
-      gasMultiplier: 1,
-      timeout: 3000000,
-      httpHeaders: {},
-      live: true,
-      saveDeployments: true,
-      tags: ['mainnet', 'prod'],
-      companionNetworks: {},
-      ethNetwork: 'mainnet', // The Ethereum Web3 RPC URL, or the identifier of the network (e.g. `mainnet` or `sepolia`)
-      verifyURL: 'https://zksync2-mainnet-explorer.zksync.io/contract_verification',
-      zksync: true,
-    },
-    [networkInfos.berachainTestnetbArtio.id]: {
-      url: networkInfos.berachainTestnetbArtio.rpcUrls.default.http[0],
-      chainId: networkInfos.berachainTestnetbArtio.id,
-      accounts: process.env.DEV_PRIVATE_KEY ? [process.env.DEV_PRIVATE_KEY] : [],
-      gas: 'auto',
-      gasPrice: 'auto',
-      gasMultiplier: 1,
-      timeout: 3000000,
-      httpHeaders: {},
-      live: true,
-      saveDeployments: true,
-      tags: ['testnet', 'test'],
-      companionNetworks: {},
-    },
-    [networkInfos.arbitrumSepolia.id]: {
-      url: networkInfos.arbitrumSepolia.rpcUrls.default.http[0],
-      chainId: networkInfos.arbitrumSepolia.id,
-      accounts: process.env.DEV_PRIVATE_KEY ? [process.env.DEV_PRIVATE_KEY] : [],
-      gas: 'auto',
-      gasPrice: 'auto',
-      gasMultiplier: 1,
-      timeout: 3000000,
-      httpHeaders: {},
-      live: true,
-      saveDeployments: true,
-      tags: ['testnet', 'test'],
-      companionNetworks: {},
-    },
-    [networkInfos.arbitrum.id]: {
-      url: networkInfos.arbitrum.rpcUrls.default.http[0],
-      chainId: networkInfos.arbitrum.id,
-      accounts: [loadPrivateKeyFromKeyfile()],
-      gas: 'auto',
-      gasPrice: 'auto',
-      gasMultiplier: 1,
-      timeout: 3000000,
-      httpHeaders: {},
-      live: true,
-      saveDeployments: true,
-      tags: ['mainnet', 'prod'],
-      companionNetworks: {},
-    },
-    [networkInfos.base.id]: {
-      url: networkInfos.base.rpcUrls.default.http[0],
-      chainId: networkInfos.base.id,
+    [146]: {
+      url: 'https://rpc.soniclabs.com',
+      chainId: 146,
       accounts: [loadPrivateKeyFromKeyfile()],
       gas: 'auto',
       gasPrice: 'auto',
@@ -273,18 +172,15 @@ const config: HardhatConfig = {
   },
   etherscan: {
     apiKey: {
-      base: process.env.BASESCAN_API_KEY ?? '',
-      sepolia: process.env.ARBISCAN_API_KEY ?? '',
-      arbitrumSepolia: process.env.ARBISCAN_API_KEY ?? '',
-      [networkInfos.berachainTestnetbArtio.id]: 'verifyContract',
+      [146]: 'routescan',
     },
     customChains: [
       {
-        network: networkInfos.berachainTestnetbArtio.id.toString(),
-        chainId: networkInfos.berachainTestnetbArtio.id,
+        network: '146',
+        chainId: 146,
         urls: {
-          apiURL: 'https://api.routescan.io/v2/network/testnet/evm/80084/etherscan/api/',
-          browserURL: 'https://bartio.beratrail.io',
+          apiURL: 'https://api.routescan.io/v2/network/mainnet/evm/146/etherscan',
+          browserURL: 'https://146.routescan.io',
         },
       },
     ],

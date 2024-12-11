@@ -1,5 +1,5 @@
 {
-  "name": "v2-periphery",
+  "name": "periphery",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -17,19 +17,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/clober-dex/v2-periphery.git"
+    "url": "git+https://github.com/Sonic-Market/periphery.git"
   },
   "bugs": {
-    "url": "https://github.com/clober-dex/v2-periphery/issues"
+    "url": "https://github.com/Sonic-Market/periphery/issues"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "files": [],
   "devDependencies": {
-    "@matterlabs/hardhat-zksync-deploy": "^1.5.0",
-    "@matterlabs/hardhat-zksync-solc": "^1.2.4",
-    "@matterlabs/hardhat-zksync-verify": "^1.6.0",
     "@nomicfoundation/hardhat-foundry": "^1.1.2",
     "@nomicfoundation/hardhat-verify": "^2.0.10",
     "@nomicfoundation/hardhat-viem": "^2.0.4",
@@ -44,6 +41,6 @@
     "prettier": "^3.3.3",
     "readline-sync": "^1.4.10",
     "solidity-docgen": "^0.6.0-beta.36",
-    "viem": "2.18.8"
+    "viem": "^2.21.54"
   }
 }

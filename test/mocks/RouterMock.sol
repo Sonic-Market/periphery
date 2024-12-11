@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import {Currency, CurrencyLibrary} from "v2-core/libraries/Currency.sol";
+import {Currency, CurrencyLibrary} from "core/libraries/Currency.sol";
 
 contract RouterMock {
     using CurrencyLibrary for Currency;

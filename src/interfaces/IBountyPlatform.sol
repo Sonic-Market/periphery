@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.0;
 
-import {IBookManager} from "v2-core/interfaces/IBookManager.sol";
-import {Currency} from "v2-core/libraries/Currency.sol";
-import {OrderId} from "v2-core/libraries/OrderId.sol";
+import {IBookManager} from "core/interfaces/IBookManager.sol";
+import {Currency} from "core/libraries/Currency.sol";
+import {OrderId} from "core/libraries/OrderId.sol";
 
 /**
  * @title IBountyPlatform

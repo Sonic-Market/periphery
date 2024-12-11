@@ -3,11 +3,11 @@
 pragma solidity ^0.8.0;
 
 import {Ownable2Step, Ownable} from "@openzeppelin/contracts/access/Ownable2Step.sol";
-import {IBookManager} from "v2-core/interfaces/IBookManager.sol";
-import {Hooks} from "v2-core/libraries/Hooks.sol";
-import {BookIdLibrary} from "v2-core/libraries/BookId.sol";
-import {Currency, CurrencyLibrary} from "v2-core/libraries/Currency.sol";
-import {OrderId, OrderIdLibrary} from "v2-core/libraries/OrderId.sol";
+import {IBookManager} from "core/interfaces/IBookManager.sol";
+import {Hooks} from "core/libraries/Hooks.sol";
+import {BookIdLibrary} from "core/libraries/BookId.sol";
+import {Currency, CurrencyLibrary} from "core/libraries/Currency.sol";
+import {OrderId, OrderIdLibrary} from "core/libraries/OrderId.sol";
 
 import {IBountyPlatform} from "../interfaces/IBountyPlatform.sol";
 import {BaseHook} from "./BaseHook.sol";

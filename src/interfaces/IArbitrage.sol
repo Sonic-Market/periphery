@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-import {BookId} from "v2-core/libraries/BookId.sol";
-import {Currency} from "v2-core/libraries/Currency.sol";
+import {BookId} from "core/libraries/BookId.sol";
+import {Currency} from "core/libraries/Currency.sol";
 
 interface IArbitrage {
     error InvalidAccess();

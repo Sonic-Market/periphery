@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-import "v2-core/libraries/Currency.sol";
+import "core/libraries/Currency.sol";
 import "@openzeppelin/contracts/access/Ownable2Step.sol";
 
 contract MockBookManager is Ownable2Step {

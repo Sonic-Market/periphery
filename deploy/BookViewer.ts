@@ -1,29 +1,19 @@
 import { HardhatRuntimeEnvironment } from 'hardhat/types'
 import { DeployFunction } from 'hardhat-deploy/types'
-import { deployWithVerify, BOOK_MANAGER, deployCreate3WithVerify, SAFE_WALLET } from '../utils'
-import { getChain, isDevelopmentNetwork } from '@nomicfoundation/hardhat-viem/internal/chains'
+import { deployWithVerify, BOOK_MANAGER } from '../utils'
 import { Address, encodeFunctionData } from 'viem'
 
 const deployFunction: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
-  const { deployments, getNamedAccounts, network } = hre
-  const chain = await getChain(network.provider)
+  const { deployments, getNamedAccounts } = hre
   const deployer = (await getNamedAccounts())['deployer'] as Address
 
   if (await deployments.getOrNull('BookViewer_Implementation')) {
     return
   }
 
-  let owner: Address = '0x'
-  if (chain.testnet || isDevelopmentNetwork(chain.id)) {
-    owner = deployer
-  } else {
-    owner = SAFE_WALLET[chain.id] // Safe
-    if (owner == undefined) {
-      throw new Error('Unknown chain')
-    }
-  }
+  let owner: Address = deployer
 
-  const implementation = (await deployWithVerify(hre, 'BookViewer_Implementation', [BOOK_MANAGER[chain.id]], {
+  const implementation = (await deployWithVerify(hre, 'BookViewer_Implementation', [BOOK_MANAGER[146]], {
     contract: 'BookViewer',
   })) as Address
 
@@ -35,7 +25,7 @@ const deployFunction: DeployFunction = async function (hre: HardhatRuntimeEnviro
       functionName: '__BookViewer_init',
       args: [owner],
     })
-    viewer = await deployCreate3WithVerify(deployer, 0xffffn + 6n, 'BookViewer_Proxy', [implementation, initData], {
+    viewer = await deployWithVerify(hre, 'BookViewer_Proxy', [implementation, initData], {
       contract: 'ERC1967Proxy',
     })
   }

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-import {IBookManager} from "v2-core/interfaces/IBookManager.sol";
+import {IBookManager} from "core/interfaces/IBookManager.sol";
 
 interface IProviderFactory {
     event DeployProvider(address indexed provider, address indexed broker, uint256 shareRatio);

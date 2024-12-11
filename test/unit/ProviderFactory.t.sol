@@ -7,7 +7,7 @@ import "../../src/ProviderFactory.sol";
 import "../mocks/MockBookManager.sol";
 import "../Constants.sol";
 import "../../src/interfaces/IProvider.sol";
-import "v2-core/BookManager.sol";
+import "core/BookManager.sol";
 
 contract ProviderFactoryTest is Test {
     ProviderFactory public providerFactory;

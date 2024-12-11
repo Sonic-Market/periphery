@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-import {Currency, CurrencyLibrary} from "v2-core/libraries/Currency.sol";
+import {Currency, CurrencyLibrary} from "core/libraries/Currency.sol";
 import {IProviderFactory} from "./IProviderFactory.sol";
 
 interface IProvider {

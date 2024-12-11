@@ -7,13 +7,13 @@ import {UUPSUpgradeable} from "@openzeppelin/contracts/proxy/utils/UUPSUpgradeab
 import {ERC1967Proxy} from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol"; // To generate artifacts
 import {Ownable, Ownable2Step} from "@openzeppelin/contracts/access/Ownable2Step.sol";
 import {Initializable} from "@openzeppelin/contracts/proxy/utils/Initializable.sol";
-import {IBookManager} from "v2-core/interfaces/IBookManager.sol";
-import {SignificantBit} from "v2-core/libraries/SignificantBit.sol";
-import {Math} from "v2-core/libraries/Math.sol";
-import {Lockers} from "v2-core/libraries/Lockers.sol";
-import {BookId} from "v2-core/libraries/BookId.sol";
-import {Tick, TickLibrary} from "v2-core/libraries/Tick.sol";
-import {FeePolicy, FeePolicyLibrary} from "v2-core/libraries/FeePolicy.sol";
+import {IBookManager} from "core/interfaces/IBookManager.sol";
+import {SignificantBit} from "core/libraries/SignificantBit.sol";
+import {Math} from "core/libraries/Math.sol";
+import {Lockers} from "core/libraries/Lockers.sol";
+import {BookId} from "core/libraries/BookId.sol";
+import {Tick, TickLibrary} from "core/libraries/Tick.sol";
+import {FeePolicy, FeePolicyLibrary} from "core/libraries/FeePolicy.sol";
 
 import {IBookViewer} from "./interfaces/IBookViewer.sol";
 import {IController} from "./interfaces/IController.sol";
